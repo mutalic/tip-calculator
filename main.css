@@ -1,0 +1,102 @@
+:root {
+    --dark-green: #489069;
+    --green:rgb(193, 219, 179, 0.4);
+    --light-green: rgb(193, 219, 179, 0.3);
+}
+
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style Classes */
+
+.title {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+
+.split .number, .split .title {
+    color: var(--dark-green);
+}
+
+.number-input {
+    border: none;
+    display: block;
+    width: 100%;
+    font-size: 2.5rem;
+}
+
+/* Individual Elements*/
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 300px;
+    margin: 2rem 0;
+
+}
+
+/* Cost (Total Bill, Tip) */
+.cost {
+    padding: 0 1rem;
+    /* border: 1px solid black; */
+}
+.bill, .tip {
+    margin-bottom: 1rem;
+}
+
+/* Split (Number of people, Total per person) */
+
+.split {
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--light-green);
+}
+.split-settings {
+    display: flex;
+    column-gap: 0.7rem;
+    align-items: center;
+}
+.operator {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    color: var(--dark-green);
+    background-color: var(--green);
+    font-size: 1.2rem;
+}
+.operator:hover {
+    cursor: pointer;
+}
+.person {
+    font-size: 0.7rem;
+}
