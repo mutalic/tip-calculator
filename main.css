@@ -55,6 +55,15 @@ body {
     align-items: center;
 }
 
+.logo-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem 3rem;
+    font-style: italic;
+    font-size: 1rem;
+}
+
 .container {
     width: 80%;
     max-width: 300px;
