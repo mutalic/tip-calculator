@@ -61,7 +61,10 @@ body {
     right: 0;
     margin: 2rem 3rem;
     font-style: italic;
-    font-size: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
 }
 
 .container {
@@ -108,6 +111,81 @@ body {
 }
 .person {
     font-size: 0.7rem;
+}
+
+/* Number Pad (CSS Grid) */
+
+.number-pad {
+    margin-top: 2em;
+    min-height: 200px;
+    border-left: 1px solid var(--light-green);
+    border-top: 1px solid var(--light-green);
+}
+
+.pad-btn {
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid var(--light-green);
+    border-right: 1px solid var(--light-green);
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: var(--dark-green);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "one two three"
+        "four five six"
+        "seven eight nine"
+        "dot zero backspace";
+}
+
+#one {
+    grid-area: one;
+}
+#two {
+    grid-area: two;
+}
+#three {
+    grid-area: three;
+}
+#four {
+    grid-area: four;
+}
+#five {
+    grid-area: five;
+}
+#six {
+    grid-area: six;
+}
+#seven {
+    grid-area: seven;
+}
+#eight {
+    grid-area: eight;
+}
+#nine {
+    grid-area: nine;
+}
+#dot {
+    grid-area: dot;
+}
+#zero {
+    grid-area: zero;
+}
+#backspace {
+    grid-area: backspace;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    .logo {
+        font-size: 1.2rem;
+    }
 }
 
 @media only screen and (max-width: 300px) {
