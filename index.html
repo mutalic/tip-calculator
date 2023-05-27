@@ -7,10 +7,6 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./main.css">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Title -->
     <title>Tipping Point</title>
 </head>
 <body>
@@ -23,20 +19,20 @@
             <div class="cost">
                 <div class="bill">
                     <label for="bill-total" class="title">Bill Total ($)</label>
-                    <input id="bill-total" class="number-input number" type="text" placeholder="100.00">
+                    <input id="bill-total" class="number-input number" type="text" placeholder="00.00">
                 </div>
                 <div class="tip">
                     <label for="tip-percentage" class="title">Tip (%)</label>
-                    <input id="tip-percentage" class="number-input number" type="text" placeholder="10">
+                    <input id="tip-percentage" class="number-input number" type="text" placeholder="0">
                 </div>
             </div>
             <div class="split">
                 <div class="split-number">
                     <p class="title">Split</p>
                     <div class="split-settings">
-                        <button class="operator">-</button>
-                        <p class="number">1</p>
-                        <button class="operator">+</button>
+                        <button class="operator" id="subtractPerson">-</button>
+                        <p class="number" id="split-by">1</p>
+                        <button class="operator" id="addPerson">+</button>
                     </div>
                 </div>
                 <div class="split-total">
@@ -47,5 +43,7 @@
         </div>
         <div class="number-pad"></div>
     </main>
+
+    <script type="module" src="./index.js"></script>
 </body>
 </html>
