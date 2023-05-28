@@ -40,15 +40,14 @@ function fillWithZeros(number, k) {
 
 // Variables (with default values)
 let splitBy = 1; // one person
-let totalBill = 0; // $100.00
-let tip = 0; // 10%
+let totalBill = ""; // $100.00
+let tip = ""; // 10%
 let totalPerPerson = 0;
 
 const setIndividualTotal = () => {
     elementIndividualTotal.textContent = fillWithZeros(individualTotal(totalBill, tip, splitBy), 2);
     return fillWithZeros(individualTotal(totalBill, tip, splitBy), 2);
 };
-
 
 // HTML Elements
 const elementTotalBill = document.querySelector('#bill-total');
@@ -57,8 +56,54 @@ const elementAddPerson = document.querySelector('#addPerson');
 const elementSubtractPerson = document.querySelector('#subtractPerson');
 const elementSplitBy = document.querySelector('#split-by');
 const elementIndividualTotal = document.querySelector('#individual-total');
+const elementNumberPad = document.querySelector('.number-pad');
 
-// Event Listeners
+// Currently active element
+let activeElement;
+// Event Listeners -- Track active element for number pad usage
+// 1. Sets 'activeElement' to 'elementTotalBill'.
+elementTotalBill.addEventListener('click', function(e){
+    activeElement = e.target;
+})
+
+// 2. Sets 'activeElement' to 'elementTipPercentage'.
+elementTipPercentage.addEventListener('click', function(e){
+    activeElement = e.target;
+})
+
+// 3. Number pad
+elementNumberPad.addEventListener('click', function(e){
+    let pushed = e.target.value;
+    // If Bill Total field is focused
+    if (activeElement === elementTotalBill) {
+        // Backspace
+        if (pushed === "backspace" && totalBill.length > 0) {
+            let copy = [...totalBill];
+            copy.splice(copy.length - 1);
+            copy = copy.join('');
+            totalBill = copy;
+            activeElement.value = totalBill;
+        } else {
+            totalBill += pushed;
+        activeElement.value = totalBill;
+        }
+    // If Tip (%) filed is focused
+    } else if (activeElement === elementTipPercentage) {
+        if (pushed === "backspace" && tip.length > 0) {
+            let copy = [...tip];
+            copy.splice(copy.length - 1);
+            copy = copy.join('');
+            tip = copy;
+            activeElement.value = tip;
+        } else {
+            tip += pushed;
+            activeElement.value = tip;
+        }
+    }
+    setIndividualTotal();
+})
+
+// Event Listeners -- For user input (total bill, tip, split)
 // 1. Total Bill
 // Updates 'totalBill' variable, then displays the total per person whenever user input is generated.
 elementTotalBill.addEventListener('input', function(e){

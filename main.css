@@ -130,6 +130,11 @@ body {
     font-size: 1.5rem;
     font-weight: lighter;
     color: var(--dark-green);
+    cursor: pointer;
+}
+
+.pad-btn:hover {
+    background-color: var(--light-green);
 }
 
 .grid-container {
